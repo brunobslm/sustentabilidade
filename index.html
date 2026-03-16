@@ -1,132 +1,116 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <!-- Esta tag é a chave para o Design Responsivo -->
+    <!-- Configura a viewport para o site se adaptar a qualquer tela (mobile, tablet, pc) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Equilíbrio Sustentável - Paraná</title>
-    <!-- Link para o CSS (estilos) que vamos criar depois -->
+    <!-- Link para o arquivo CSS (estilos) que criaremos depois -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- CABEÇALHO / MENU DE NAVEGAÇÃO -->
-    <!-- É o menu que fica no topo com links para cada parte do slide -->
-    <header class="cabecalho">
-        <div class="container menu-container">
-            <h1 class="logo">Equilíbrio Sustentável</h1>
-            <nav class="menu">
-                <ul>
-                    <li><a href="#contexto">Contexto</a></li>
-                    <li><a href="#acao1">Tecnologia</a></li>
-                    <li><a href="#acao2">Indústria</a></li>
-                    <li><a href="#humano">Fator Humano</a></li>
-                    <li><a href="#inovacao">Inovação</a></li>
-                    <li><a href="#conclusao">Conclusão</a></li>
-                </ul>
-            </nav>
-        </div>
+    <!-- === MENU DE NAVEGAÇÃO (TOPO) === -->
+    <header>
+        <nav class="menu">
+            <div class="logo">🌱 Equilíbrio PR</div>
+            <!-- Botão do menu hamburguer (para celular) -->
+            <div class="menu-toggle" id="menu-toggle">☰</div>
+            <ul class="menu-links" id="menu-links">
+                <li><a href="#cenario">Cenário</a></li>
+                <li><a href="#agricultura">Agricultura</a></li>
+                <li><a href="#industria">Indústria</a></li>
+                <li><a href="#humano">Fator Humano</a></li>
+                <li><a href="#tecnologia">Tecnologia</a></li>
+                <li><a href="#conclusao">Conclusão</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL DO SITE -->
-    <main>
-        <!-- SEÇÃO DE INTRODUÇÃO / CAPA (Baseado no 1º slide) -->
-        <section class="section intro">
-            <div class="container">
-                <!-- Título principal -->
-                <h1 class="titulo-principal">Equilíbrio Sustentável: Produzir Mais, Poluir Menos</h1>
-                <p class="subtitulo">O desafio e as oportunidades do Paraná no século XXI</p>
-                <!-- Usando a tag <ul> para listar os pontos, igual nos slides -->
-                <ul class="lista-pontos">
-                    <li><strong>CONTEXTO:</strong> Somos um dos maiores produtores de grãos e proteína animal do Brasil.</li>
-                    <li><strong>CONFLITO:</strong> Como expandir as fábricas e lavouras sem comprometer a Mata Atlântica e os nossos rios (como o Iguaçu e o Tibagi)?</li>
-                    <li><strong>META:</strong> Romper a ideia de que "ou se produz, ou se preserva". O futuro exige os dois.</li>
-                </ul>
-            </div>
-        </section>
+    <!-- === CAPA (Slide 1) === -->
+    <section class="capa">
+        <h1>EQUILÍBRIO SUSTENTÁVEL: PRODUZIR MAIS, POLUIR MENOS</h1>
+        <p>O desafio e as oportunidades do Paraná no século XXI</p>
+    </section>
 
-        <!-- SEÇÃO 2: O Cenário Paranaense (Slide 2) -->
-        <!-- O ID é usado pelo menu para saber para onde levar -->
-        <section id="contexto" class="section bg-white">
-            <div class="container">
-                <h2 class="titulo-secao">O Cenário Paranaense</h2>
-                <p>O Paraná está no centro do debate sobre produção e preservação. Nossa missão é mostrar que a tecnologia é a ponte para esse equilíbrio.</p>
+    <!-- === SLIDE 2: CENÁRIO PARANAENSE === -->
+    <section id="cenario" class="slide">
+        <h2>O CENÁRIO PARANAENSE</h2>
+        <div class="card-container">
+            <div class="card-contexto">
+                <h3>🌾 Contexto</h3>
+                <p>Somos um dos maiores produtores de grãos e proteína animal do Brasil.</p>
             </div>
-        </section>
-
-        <!-- SEÇÃO 3: Ação 1 - Tecnologia no Campo (Slide 3) -->
-        <section id="acao1" class="section bg-verde-claro">
-            <div class="container">
-                <h2 class="titulo-secao">Ação 1 - Tecnologia no Campo (Agro 4.0)</h2>
-                <!-- Cada tópico do slide vira um card ou um item de lista estilizado -->
-                <ul class="lista-pontos">
-                    <li><strong>Agricultura de Precisão:</strong> Uso de drones e sensores para aplicar agrotóxicos apenas onde é necessário, evitando a contaminação do solo e lençóis freáticos.</li>
-                    <li><strong>Plantio Direto:</strong> Técnica que nasceu com força aqui no PR, mantendo a palha no solo para evitar erosão e reter carbono.</li>
-                </ul>
+            <div class="card-conflito">
+                <h3>⚖️ Conflito</h3>
+                <p>Como expandir as fábricas e lavouras sem comprometer a Mata Atlântica e os nossos rios (como o Iguaçu e o Tibagi)?</p>
             </div>
-        </section>
-
-        <!-- SEÇÃO 4: Ação 2 - Indústria Limpa e Logística Verde (Slide 4) -->
-        <section id="acao2" class="section bg-white">
-            <div class="container">
-                <h2 class="titulo-secao">Ação 2 - Indústria Limpa e Logística Verde</h2>
-                <ul class="lista-pontos">
-                    <li><strong>Eficiência Energética:</strong> Substituição de combustíveis fósseis por biomassa e energia solar nas fábricas.</li>
-                    <li><strong>Logística Reversa:</strong> Empresas paranaenses que recolhem suas embalagens pós-consumo, reduzindo o volume de lixo nos aterros.</li>
-                    <li><strong>Tratamento de Efluentes:</strong> Rígido controle para que a água usada na produção industrial retorne limpa aos rios.</li>
-                </ul>
+            <div class="card-meta">
+                <h3>🎯 Meta</h3>
+                <p>Romper a ideia de que "ou se produz, ou se preserva". O futuro exige os dois.</p>
             </div>
-        </section>
-
-        <!-- SEÇÃO 5: O Fator Humano e a CLT (Slide 5) -->
-        <section id="humano" class="section bg-verde-claro">
-            <div class="container">
-                <h2 class="titulo-secao">O Fator Humano e a CLT</h2>
-                <ul class="lista-pontos">
-                    <li><strong>Segurança do Trabalho:</strong> O cumprimento das Normas Regulamentadoras (NRs) da CLT garante que o aumento da produção não ocorra à custa da saúde do funcionário.</li>
-                    <li><strong>Direitos e Sustentabilidade Social:</strong> Empresas que respeitam a jornada de trabalho e investem em treinamento criam um ambiente produtivo mais eficiente e menos propenso a erros que causam desastres ambientais.</li>
-                    <li><strong>Trabalho Decente:</strong> O equilíbrio ambiental deve caminhar junto com a dignidade do trabalhador paranaense.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 6: O Papel da Tecnologia e Inovação (Slide 6) -->
-        <section id="inovacao" class="section bg-white">
-            <div class="container">
-                <h2 class="titulo-secao">O Papel da Tecnologia e Inovação</h2>
-                <ul class="lista-pontos">
-                    <li><strong>Biopesticidas:</strong> O uso de controle biológico (insetos "do bem") em vez de químicos pesados.</li>
-                    <li><strong>Energia Renovável:</strong> O Paraná como líder em biogás (aproveitando dejetos da suinocultura para gerar energia).</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 7: Conclusão (Slide 7) -->
-        <section id="conclusao" class="section bg-verde-escuro conclusao">
-            <div class="container">
-                <h2 class="titulo-secao">Conclusão</h2>
-                <ul class="lista-pontos">
-                    <li>O equilíbrio é possível através da ciência, da fiscalização e da consciência.</li>
-                    <li>Reduzir a poluição não é um gasto, é um investimento em eficiência.</li>
-                    <li>Nós, estudantes, somos os futuros técnicos, engenheiros e gestores que farão essa engrenagem girar de forma limpa.</li>
-                </ul>
-                <!-- ÁREA DA INTERATIVIDADE COM JAVASCRIPT -->
-                <!-- O botão que o JavaScript vai "pegar" para fazer a mágica -->
-                <button id="botaoInterativo" class="botao-destaque">Clique aqui para um lembrete!</button>
-                <p id="mensagemInterativa" class="mensagem-interativa"></p>
-            </div>
-        </section>
-    </main>
-
-    <!-- RODAPÉ -->
-    <footer class="rodape">
-        <div class="container">
-            <p>Trabalho escolar - 2º Ano Ensino Médio. Todos os direitos reservados.</p>
         </div>
+    </section>
+
+    <!-- === SLIDE 3: AÇÃO 1 - AGRICULTURA === -->
+    <section id="agricultura" class="slide verde-claro">
+        <h2>🌱 Agricultura Sustentável</h2>
+        <ul class="lista-bullet">
+            <li><strong>Agricultura de Precisão:</strong> Uso de drones e sensores para aplicar agrotóxicos apenas onde é necessário, evitando a contaminação do solo e lençóis freáticos.</li>
+            <li><strong>Plantio Direto:</strong> Técnica que nasceu com força aqui no PR, mantendo a palha no solo para evitar erosão e reter carbono.</li>
+        </ul>
+    </section>
+
+    <!-- === SLIDE 4: AÇÃO 2 - INDÚSTRIA LIMPA === -->
+    <section id="industria" class="slide">
+        <h2>🏭 Indústria Limpa e Logística Verde</h2>
+        <ul class="lista-bullet">
+            <li><strong>Eficiência Energética:</strong> Substituição de combustíveis fósseis por biomassa e energia solar nas fábricas.</li>
+            <li><strong>Logística Reversa:</strong> Empresas paranaenses que recolhem suas embalagens pós-consumo, reduzindo o lixo nos aterros.</li>
+            <li><strong>Tratamento de Efluentes:</strong> Rígido controle para que a água usada na produção industrial retorne limpa aos rios.</li>
+        </ul>
+    </section>
+
+    <!-- === SLIDE 5: FATOR HUMANO E CLT === -->
+    <section id="humano" class="slide verde-claro">
+        <h2>👷 FATOR HUMANO E A CLT</h2>
+        <ul class="lista-bullet">
+            <li><strong>Segurança do Trabalho:</strong> O cumprimento das Normas Regulamentadoras (NRs) da CLT garante que o aumento da produção não ocorra à custa da saúde do funcionário.</li>
+            <li><strong>Direitos e Sustentabilidade Social:</strong> Empresas que respeitam a jornada de trabalho e investem em treinamento criam um ambiente produtivo mais eficiente e menos propenso a erros que causam desastres ambientais.</li>
+            <li><strong>Trabalho Decente:</strong> O equilíbrio ambiental deve caminhar junto com a dignidade do trabalhador paranaense.</li>
+        </ul>
+    </section>
+
+    <!-- === SLIDE 6: TECNOLOGIA E INOVAÇÃO === -->
+    <section id="tecnologia" class="slide">
+        <h2>💡 O PAPEL DA TECNOLOGIA E INOVAÇÃO</h2>
+        <ul class="lista-bullet">
+            <li><strong>Biopesticidas:</strong> O uso de controle biológico (insetos "do bem") em vez de químicos pesados.</li>
+            <li><strong>Energia Renovável:</strong> O Paraná como líder em biogás (aproveitando dejetos da suinocultura para gerar energia).</li>
+        </ul>
+    </section>
+
+    <!-- === SLIDE 7: CONCLUSÃO (COM INTERATIVIDADE) === -->
+    <section id="conclusao" class="slide verde-claro">
+        <h2>✅ CONCLUSÃO</h2>
+        <ul class="lista-bullet">
+            <li>O equilíbrio é possível através da ciência, da fiscalização e da consciência.</li>
+            <li>Reduzir a poluição não é um gasto, é um investimento em eficiência.</li>
+            <li>Nós, estudantes, somos os futuros técnicos, engenheiros e gestores que farão essa engrenagem girar de forma limpa.</li>
+        </ul>
+
+        <!-- BOTÃO INTERATIVO (JavaScript) -->
+        <div class="interativo">
+            <button id="btnMensagem">Clique para uma mensagem inspiradora 🌟</button>
+            <p id="mensagemEspecial" class="mensagem-oculta"></p>
+        </div>
+    </section>
+
+    <!-- Rodapé simples -->
+    <footer>
+        <p>Trabalho Escolar - 2º Ano EM | Sustentabilidade no Paraná</p>
     </footer>
 
-    <!-- Link para o JavaScript (interatividade) que vamos criar depois -->
-    <!-- Colocar antes do fechamento do body é uma boa prática -->
+    <!-- Link para o arquivo JavaScript (interações) -->
     <script src="script.js"></script>
 </body>
 </html>
