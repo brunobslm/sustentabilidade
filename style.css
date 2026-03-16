@@ -1,232 +1,236 @@
-/* ===== RESET BÁSICO ===== */
-/* Remove margens e paddings padrão do navegador para começar do zero */
+/* === RESET BÁSICO (tira as margens e paddings padrão do navegador) === */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Faz com que o padding não aumente a largura dos elementos */
+    box-sizing: border-box; /* Faz com que o tamanho inclua borda e padding */
 }
 
-/* ===== VARIÁVEIS DE CORES ===== */
-/* Facilita para mudar as cores depois. Usei tons de verde e branco como você pediu */
-:root {
-    --verde-escuro: #1B4D3E;  /* Cor principal, mais forte */
-    --verde-claro: #E8F5E9;   /* Fundo verde suave */
-    --verde-destaque: #2E7D32; /* Para botões e detalhes */
-    --branco: #FFFFFF;
-    --cinza-texto: #333333;   /* Cor do texto para não cansar a vista */
-}
-
-/* ===== ESTILOS GLOBAIS ===== */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna */
-    color: var(--cinza-texto);
-    line-height: 1.6; /* Altura da linha para facilitar a leitura */
-    background-color: var(--branco);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333; /* Cor de texto escura (quase preta) para contraste */
+    background-color: #f8fff8; /* Branco com um leve tom de verde */
 }
 
-/* Classe container: centraliza o conteúdo e dá uma margem lateral */
-.container {
-    max-width: 1100px; /* Largura máxima em telas grandes */
-    margin: 0 auto;    /* Centraliza na horizontal */
-    padding: 0 20px;   /* Espaçamento nas laterais para não colar na borda */
-}
-
-/* ===== CABEÇALHO E MENU ===== */
-.cabecalho {
-    background-color: var(--verde-escuro);
-    color: var(--branco);
-    padding: 20px 0;
-    position: sticky; /* Menu gruda no topo quando rola a página */
+/* === MENU (TOPO) === */
+header {
+    background-color: #1a4d2e; /* Verde escuro */
+    color: white;
+    position: sticky; /* Menu gruda no topo ao rolar a página */
     top: 0;
-    width: 100%;
-    z-index: 1000; /* Fica acima de outros elementos */
+    z-index: 100; /* Fica acima de outros elementos */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-.menu-container {
-    display: flex;          /* Usa Flexbox para alinhar logo e menu */
-    justify-content: space-between; /* Joga um para cada lado */
-    align-items: center;    /* Alinha verticalmente no centro */
-    flex-wrap: wrap;        /* Se não couber, quebra para baixo (importante no mobile) */
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o conteúdo do menu */
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    color: #e6f0da; /* Verde bem clarinho */
 }
 
-/* Estilizando a lista do menu */
-.menu ul {
+.menu-links {
     display: flex;
     list-style: none; /* Tira as bolinhas da lista */
-    gap: 20px;        /* Espaço entre os itens */
-    flex-wrap: wrap;  /* Permite quebra em telas pequenas */
+    gap: 1.5rem; /* Espaço entre os itens */
 }
 
-.menu a {
-    color: var(--branco);
+.menu-links a {
+    color: white;
     text-decoration: none; /* Tira o sublinhado */
     font-weight: 500;
-    padding: 5px 10px;
-    transition: background-color 0.3s ease; /* Efeito suave ao passar o mouse */
+    transition: color 0.3s ease; /* Efeito suave ao passar o mouse */
 }
 
-.menu a:hover {
-    background-color: var(--verde-destaque);
-    border-radius: 5px;
+.menu-links a:hover {
+    color: #b8e0a8; /* Verde claro ao passar o mouse */
 }
 
-/* ===== ESTILOS DAS SEÇÕES ===== */
-.section {
-    padding: 60px 0; /* Espaçamento vertical de cada seção */
-}
-
-/* Classes de fundo para alternar as cores */
-.bg-white {
-    background-color: var(--branco);
-}
-
-.bg-verde-claro {
-    background-color: var(--verde-claro);
-}
-
-.bg-verde-escuro {
-    background-color: var(--verde-escuro);
-    color: var(--branco); /* Se o fundo é escuro, a letra precisa ser clara */
-}
-
-/* Título principal da capa */
-.titulo-principal {
-    font-size: 2.5rem;
-    color: var(--verde-escuro);
-    margin-bottom: 10px;
-    line-height: 1.2;
-}
-
-.subtitulo {
-    font-size: 1.2rem;
-    color: var(--verde-destaque);
-    margin-bottom: 30px;
-    font-weight: normal;
-}
-
-/* Título de cada seção */
-.titulo-secao {
+/* Botão de menu hamburguer (invisível em telas grandes) */
+.menu-toggle {
+    display: none;
     font-size: 2rem;
-    color: var(--verde-escuro);
-    margin-bottom: 30px;
-    border-left: 6px solid var(--verde-destaque); /* Detalhe legal na lateral */
-    padding-left: 15px;
+    cursor: pointer;
 }
 
-/* Se o título estiver em fundo escuro, a cor deve ser branca */
-.bg-verde-escuro .titulo-secao {
-    color: var(--branco);
-    border-left-color: var(--branco);
+/* === ESTILOS GERAIS DAS SEÇÕES === */
+.slide {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid #c8e6c9; /* Linha suave de separação */
 }
 
-/* Estilo para as listas de tópicos (seus bullet points) */
-.lista-pontos {
-    list-style: none; /* Tira as bolinhas padrão */
+.capa {
+    background: linear-gradient(135deg, #1a4d2e 0%, #2e7d5e 100%); /* Gradiente verde */
+    color: white;
+    text-align: center;
+    padding: 5rem 2rem;
 }
 
-.lista-pontos li {
-    margin-bottom: 20px; /* Espaço entre um item e outro */
-    padding-left: 25px;
+.capa h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.capa p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+/* Classe especial para fundo verde claro (alternando seções) */
+.verde-claro {
+    background-color: #e8f5e9; /* Verde muito clarinho */
+}
+
+h2 {
+    color: #1a4d2e; /* Verde escuro */
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    border-left: 5px solid #2e7d5e; /* Detalhe na lateral */
+    padding-left: 1rem;
+}
+
+/* === CARDS (Slide 2 - Cenário) === */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsivo: 3 colunas em PC, 1 em celular */
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card-container > div {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-top: 4px solid #2e7d5e;
+    transition: transform 0.3s ease; /* Efeito de levantar ao passar o mouse */
+}
+
+.card-container > div:hover {
+    transform: translateY(-5px);
+}
+
+/* === LISTAS COM BULLET POINTS === */
+.lista-bullet {
+    list-style: none; /* Tira o bullet padrão para colocarmos um personalizado */
+    padding-left: 0;
+}
+
+.lista-bullet li {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
     position: relative;
 }
 
-/* Criando um bullet point personalizado (um quadradinho verde) */
-.lista-pontos li::before {
-    content: "■"; /* Símbolo quadrado */
-    color: var(--verde-destaque);
-    font-weight: bold;
+.lista-bullet li::before {
+    content: "🌿"; /* Esse é o novo bullet */
     position: absolute;
     left: 0;
-    top: 0;
-}
-
-/* Em fundo escuro, o bullet point deve ser branco */
-.bg-verde-escuro .lista-pontos li::before {
-    color: var(--branco);
-}
-
-/* ===== BOTÃO E INTERATIVIDADE ===== */
-.botao-destaque {
-    background-color: var(--verde-destaque);
-    color: var(--branco);
-    border: none;
-    padding: 15px 30px;
+    color: #2e7d5e;
     font-size: 1.2rem;
-    border-radius: 8px;
-    cursor: pointer; /* Muda o cursor para mãozinha */
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: 30px;
-    display: inline-block; /* Para o margin funcionar direito */
-    border: 2px solid var(--branco);
 }
 
-.botao-destaque:hover {
-    background-color: var(--verde-escuro);
+/* === INTERATIVIDADE (ÁREA DO BOTÃO) === */
+.interativo {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#btnMensagem {
+    background-color: #1a4d2e;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#btnMensagem:hover {
+    background-color: #2e7d5e;
     transform: scale(1.05); /* Aumenta levemente o botão */
 }
 
-.mensagem-interativa {
-    margin-top: 20px;
-    font-size: 1.1rem;
+.mensagem-oculta {
+    margin-top: 1.5rem;
+    font-size: 1.3rem;
+    color: #1a4d2e;
     font-weight: bold;
-    min-height: 30px; /* Garante um espaço mesmo quando vazio */
+    opacity: 0; /* Começa invisível */
+    transition: opacity 0.5s ease;
 }
 
-/* ===== RODAPÉ ===== */
-.rodape {
-    background-color: var(--verde-escuro);
-    color: var(--branco);
+.mensagem-oculta.mostrar {
+    opacity: 1; /* Fica visível quando a classe 'mostrar' for adicionada */
+}
+
+footer {
+    background-color: #1a4d2e;
+    color: white;
     text-align: center;
-    padding: 20px 0;
-    font-size: 0.9rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
 }
 
-/* ===== DESIGN RESPONSIVO ===== */
-/* Essas regras só se aplicam quando a tela for menor que 768px (tablets e celulares) */
+/* === MEDIA QUERIES (DEIXAR O SITE RESPONSIVO) === */
+
+/* Para tablets (largura menor que 768px) */
 @media (max-width: 768px) {
-    .menu-container {
-        flex-direction: column; /* Empilha logo e menu */
-        gap: 15px;
+    .menu {
+        flex-wrap: wrap;
     }
 
-    .menu ul {
-        justify-content: center; /* Centraliza os links */
+    .menu-toggle {
+        display: block; /* Mostra o botão hamburguer */
     }
 
-    .titulo-principal {
-        font-size: 2rem; /* Reduz o tamanho da fonte */
+    .menu-links {
+        display: none; /* Esconde os links no modo normal */
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem 0;
+        gap: 1rem;
+        background-color: #1a4d2e;
     }
 
-    .section {
-        padding: 40px 0; /* Reduz o espaçamento */
+    .menu-links.active {
+        display: flex; /* Mostra quando a classe 'active' for adicionada */
     }
 
-    .titulo-secao {
+    .capa h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Para celulares (largura menor que 480px) */
+@media (max-width: 480px) {
+    .slide {
+        padding: 2rem 1rem;
+    }
+
+    h2 {
         font-size: 1.6rem;
     }
-}
 
-/* Para telas muito pequenas (celulares em pé) */
-@media (max-width: 480px) {
-    .menu ul {
-        gap: 10px;
-    }
-
-    .menu a {
-        font-size: 0.9rem;
-        padding: 5px;
-    }
-
-    .botao-destaque {
-        padding: 12px 20px;
-        font-size: 1rem;
-        width: 100%; /* Botão ocupa a largura toda */
-        text-align: center;
+    .card-container {
+        grid-template-columns: 1fr; /* Apenas uma coluna */
     }
 }
