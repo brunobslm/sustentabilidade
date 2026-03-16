@@ -1,83 +1,52 @@
-// Aguarda todo o conteúdo da página carregar antes de executar o JS
-// Isso é uma boa prática para garantir que o botão exista.
+// === 1. MENU HAMBURGUER (para celular) ===
+// Espera o HTML carregar completamente para executar o código
 document.addEventListener('DOMContentLoaded', function() {
+    // Pega os elementos do menu que criamos no HTML
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuLinks = document.getElementById('menu-links');
 
-    // --- INTERATIVIDADE 1: Botão de lembrete na conclusão ---
-    
-    // 1. Pegamos o botão do HTML pelo seu ID
-    const botao = document.getElementById('botaoInterativo');
-    
-    // 2. Pegamos o parágrafo onde a mensagem vai aparecer
-    const mensagem = document.getElementById('mensagemInterativa');
-
-    // 3. Verificamos se o botão existe na página (para evitar erros)
-    if (botao) {
-        // 4. Dizemos ao JavaScript: "Fique ouvindo o botão. Quando alguém clicar, execute essa função."
-        botao.addEventListener('click', function() {
-            
-            // A função 'mensagem.classList.toggle' é muito legal!
-            // Ela adiciona uma classe CSS se o elemento não tem, e remove se tem.
-            // Vamos usar isso para mudar a cor da mensagem quando ela aparece.
-            
-            // A mensagem que vai aparecer no parágrafo
-            mensagem.textContent = "🌱 Lembrete: Você é parte da geração que vai construir um futuro sustentável!";
-
-            // Adiciona ou remove a classe que deixa o texto verde escuro.
-            // Precisamos criar essa classe no CSS, mas faremos isso inline ou adicionando?
-            // Vamos fazer direto aqui no JS para simplificar, mas o ideal seria uma classe.
-            mensagem.style.color = '#1B4D3E'; // Verde escuro
-            mensagem.style.fontWeight = 'bold';
-            mensagem.style.backgroundColor = '#E8F5E9'; // Fundo verde claro
-            mensagem.style.padding = '15px';
-            mensagem.style.borderRadius = '8px';
-            mensagem.style.marginTop = '20px';
-            
-            // Exemplo de como seria se usássemos uma classe (mais organizado):
-            // mensagem.classList.toggle('mostrar-mensagem');
-            // E no CSS teríamos .mostrar-mensagem { ... }
+    // Verifica se os elementos existem na página (evita erros)
+    if (menuToggle && menuLinks) {
+        // Adiciona um "ouvinte" de clique ao botão do menu
+        menuToggle.addEventListener('click', function() {
+            // O 'toggle' funciona como um liga/desliga: se tem a classe, tira; se não tem, coloca.
+            menuLinks.classList.toggle('active');
         });
     }
 
-    // --- INTERATIVIDADE 2 (Extra): Menu ativo conforme a rolagem (Opcional) ---
-    // Isso faz o item do menu ficar destacado quando a pessoa passa pela seção.
-    // É um pouco mais avançado, mas mostra como o JS pode ser poderoso!
-    
-    // Pegamos todas as seções e todos os links do menu
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.menu a');
+    // === 2. EFEITO INTERATIVO DO BOTÃO (Slide Conclusão) ===
+    const btn = document.getElementById('btnMensagem');
+    const mensagem = document.getElementById('mensagemEspecial');
 
-    // Função que vai rodar quando a página for rolada
-    window.addEventListener('scroll', () => {
-        let current = ''; // Aqui vamos guardar qual seção está aparecendo
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop; // Posição do topo da seção
-            const sectionHeight = section.clientHeight; // Altura da seção
-            
-            // Se a rolagem da página passou do topo da seção E ainda não passou do final dela
-            if (scrollY >= (sectionTop - 200)) { // -200 para ativar um pouco antes
-                current = section.getAttribute('id'); // Pega o ID da seção atual
-            }
+    if (btn && mensagem) {
+        btn.addEventListener('click', function() {
+            // Define o texto da mensagem
+            mensagem.textContent = '🌎 "Nós somos a geração que pode transformar o Paraná em exemplo de equilíbrio!"';
+
+            // Adiciona a classe 'mostrar' para fazer a mensagem aparecer (opacity: 1)
+            mensagem.classList.add('mostrar');
+
+            // Bônus: faz a mensagem piscar um pouco (muda a cor rapidamente)
+            btn.style.backgroundColor = '#b8e0a8';
+            btn.style.color = '#1a4d2e';
+
+            // Depois de 0.5 segundo, volta à cor normal
+            setTimeout(function() {
+                btn.style.backgroundColor = '#1a4d2e';
+                btn.style.color = 'white';
+            }, 500);
         });
+    }
 
-        // Agora, remove o destaque de todos os links e coloca apenas no link da seção atual
-        navLinks.forEach(link => {
-            link.classList.remove('ativo');
-            // Se o href do link (ex: #contexto) corresponde à seção atual
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('ativo'); // Adiciona a classe 'ativo' ao link
+    // === 3. (OPCIONAL) Fecha o menu ao clicar em um link (melhora a experiência no celular) ===
+    const links = document.querySelectorAll('.menu-links a');
+    links.forEach(link => {
+        link.addEventListener('click', function() {
+            // Se o menu estiver aberto (com a classe 'active'), fecha ele
+            if (menuLinks.classList.contains('active')) {
+                menuLinks.classList.remove('active');
             }
         });
     });
-
-    // Precisamos adicionar um pequeno estilo no CSS para a classe 'ativo'
-    // Copie e cole isso no seu arquivo style.css:
-    /*
-    .menu a.ativo {
-        background-color: var(--verde-destaque);
-        border-radius: 5px;
-        font-weight: bold;
-    }
-    */
 
 });
